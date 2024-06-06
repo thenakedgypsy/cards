@@ -1,3 +1,6 @@
 # readme
 
 > This is a program written by thenakedgypsy
+> python 3 and tkinter are required to run this
+> to launch - from the directory of the files run the cli command:
+> python3 main.py 
