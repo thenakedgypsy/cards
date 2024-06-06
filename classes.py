@@ -18,12 +18,25 @@ class Card:
         return self.__rank
     
     def printCard(self):
-        print(f"{self.getRank()} of {self.getSuit()}s")
+        if self.getSuit() == "Diamonds":
+            print(f"♢ {self.getRank()} of {self.getSuit()} ♢")
+        elif self.getSuit() == "Spades":
+            print(f"♤ {self.getRank()} of {self.getSuit()} ♤")
+        elif self.getSuit() == "Hearts":
+            print(f"♡ {self.getRank()} of {self.getSuit()} ♡")
+        elif self.getSuit() == "Clubs":
+            print(f"♧ {self.getRank()} of {self.getSuit()} ♧")
+        else:
+            print(f"{self.getRank()} of {self.getSuit()}")
+        
 
 
 class Deck:
     def __init__(self):
         self.__cardsInDeck = []
+
+    def getDeck(self):
+        return self.__cardsInDeck
 
     def addCard(self,card):
         self.__cardsInDeck.append(card)
@@ -37,11 +50,21 @@ class Deck:
     def discard(self,index):
         del self.__cardsInDeck[index]
 
+    def getDeckSize(self):
+        return len(self.__cardsInDeck) -1
+
     def draw(self):
-        return self.__cardsInDeck.pop()
+        if self.getDeckSize() >= 0:
+            self.__cardsInDeck.pop().printCard()
+        else:
+            print("Deck is empty.")  
     
     def printDeck(self):
-        print(self.__cardsInDeck)
+        for card in self.getDeck():
+            card.printCard()
+
+
+
 
 
 
