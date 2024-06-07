@@ -17,6 +17,9 @@ class Card:
     def getRank(self):
         return self.__rank
     
+    def getCardDisplay(card):
+        pass
+    
     def printCard(self):
         if self.getSuit() == "Diamonds":
             print(f"♢ {self.getRank()} of {self.getSuit()} ♢")
@@ -59,10 +62,20 @@ class Deck:
         else:
             print("Deck is empty.")  
     
+    
+    
     def printDeck(self):
         for card in self.getDeck():
             card.printCard()
 
+class Hand(Deck):
+    
+    def play(self, index):
+        pass
+
+class Playarea(Deck):
+    def unPlay(self,index):
+        pass
 
 
 

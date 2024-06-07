@@ -1,6 +1,8 @@
 from classes import *
+from display import *
+import tkinter
 
-def makeStandardDeck(deck):
+def makeStandardDeck(deck):   # could be a class? DeckBuilder?
     print("Making a deck...")
     deck = deck
     suitList = ["Spades","Hearts","Diamonds","Clubs"]
@@ -29,6 +31,8 @@ def main():
     mainDeck.draw()
     print("Drawing:")
     mainDeck.draw()
-       
+    display = Display()
+    display.beginDisplay()
+
 
 main()
