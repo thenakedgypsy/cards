@@ -14,11 +14,16 @@ def makeStandardDeck(deck):   # could be a class? DeckBuilder?
 
 
 
+
+
 def main():
     print("Program Launching...")
     
     mainDeck = Deck()
     makeStandardDeck(mainDeck)
+    aHand = Hand()
+    playArea = PlayArea()
+
 
     print("Printing Deck:")
     mainDeck.printDeck()
@@ -26,13 +31,30 @@ def main():
     print("Shuffling...")
     mainDeck.shuffle()
     print("Drawing:")
-    mainDeck.draw()
+    aHand.addCard(mainDeck.draw())
+    aHand.printDeck()
     print("Drawing:")
-    mainDeck.draw()
+    aHand.addCard(mainDeck.draw())
+    aHand.printDeck()
     print("Drawing:")
-    mainDeck.draw()
+    aHand.addCard(mainDeck.draw())
+    aHand.printDeck()
+    print("Drawing:")
+    aHand.addCard(mainDeck.draw())
+    aHand.printDeck()
+    print("Drawing:")
+    aHand.addCard(mainDeck.draw())
+    aHand.printDeck()
+    print("Printing Hand:")
+    aHand.printDeck()
+
     display = Display()
+    print("sending buttons to hand")
+    display.updateDisplay(aHand, playArea)
     display.beginDisplay()
+
+    
+
 
 
 main()

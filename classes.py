@@ -17,8 +17,17 @@ class Card:
     def getRank(self):
         return self.__rank
     
-    def getCardDisplay(card):
-        pass
+    def getCardDisplay(self):
+        if self.getSuit() == "Diamonds":
+            return(f"♢ {self.getRank()} of {self.getSuit()} ♢")
+        elif self.getSuit() == "Spades":
+            return(f"♤ {self.getRank()} of {self.getSuit()} ♤")
+        elif self.getSuit() == "Hearts":
+            return(f"♡ {self.getRank()} of {self.getSuit()} ♡")
+        elif self.getSuit() == "Clubs":
+            return(f"♧ {self.getRank()} of {self.getSuit()} ♧")
+        else:
+            return(f"{self.getRank()} of {self.getSuit()}")
     
     def printCard(self):
         if self.getSuit() == "Diamonds":
@@ -58,24 +67,30 @@ class Deck:
 
     def draw(self):
         if self.getDeckSize() >= 0:
-            self.__cardsInDeck.pop().printCard()
+            return self.__cardsInDeck.pop()
+            
         else:
             print("Deck is empty.")  
-    
-    
     
     def printDeck(self):
         for card in self.getDeck():
             card.printCard()
 
+    def __iter__(self):
+        return iter(self.__cardsInDeck)
+
 class Hand(Deck):
     
-    def play(self, index):
-        pass
+    def play(self, playArea, index):
+        playArea.addCard(self.getCard(index))
+        self.discard(index)
 
-class Playarea(Deck):
-    def unPlay(self,index):
-        pass
+
+class PlayArea(Deck):
+    
+    def unPlay(self, hand, index):
+        hand.addCard(self.getCard(index))
+        self.discard(index)
 
 
 
