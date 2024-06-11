@@ -12,11 +12,7 @@ def makeStandardDeck(deck):   # could be a class? DeckBuilder?
             card = Card(suit,rank)
             deck.addCard(card)
 
-
-
-
-
-def main():
+def main():    #temporary main to get things moving
     print("Program Launching...")
     
     mainDeck = Deck()

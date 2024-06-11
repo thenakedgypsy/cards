@@ -3,9 +3,9 @@ from classes import *
 
 class Display:
       
-    def __init__(self):
+    def __init__(self): #initialises the display object and various instance variables to track hand/playarea etc as well as adding seprators 
         self.root = tk.Tk()
-        self.root.title("Title")
+        self.root.title("Cards")
         self.root.geometry("800x400")
         self.handButtons = []
         self.playedButtons = []
@@ -30,7 +30,6 @@ class Display:
 
         self.separator2.grid(row=2, column=0, columnspan=50, pady=5)
 
-
     def updateHand(self,hand,playArea): #updates the hand display
         if self.handFirstPack == False:
             for button in self.handButtons:
@@ -42,31 +41,22 @@ class Display:
             self.handButtons.append(btn)
         self.handFirstPack = False
 
-    
-
-
-    def updateDisplay(self, hand, playArea):
-        print("updating")
-        self.updatePlayArea(playArea)
-        self.updateHand(hand)
-
-    def handCardClicked(self,hand,playArea,index):
+    def handCardClicked(self,hand,playArea,index): #moves the clicked card from the hand to the play area
         hand.play(playArea,index)
         self.updateDisplay(hand,playArea)
 
-    def playCardClicked(self,playArea,hand,index):
+    def playCardClicked(self,playArea,hand,index): #moves the clicked card from the play area to the hand
         playArea.unPlay(hand,index)
         self.updateDisplay(hand,playArea)
 
-
-    def labelMaster(self):
+    def labelMaster(self): # placeholder
         pass
 
-    def updateDisplay(self, hand, playArea):
+    def updateDisplay(self, hand, playArea): #updates the entire display
         self.updatePlayArea(playArea,hand)
 
         self.updateHand(hand,playArea)
 
-    def beginDisplay(self):
+    def beginDisplay(self): #begins the tkinter loop
         
         self.root.mainloop()
